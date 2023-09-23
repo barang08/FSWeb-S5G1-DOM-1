@@ -42,4 +42,55 @@ const siteContent = { // BU NESNEYİ DEĞİŞTİRMEYİN
 console.log('Proje açıldı!')
 
 
-/* Kodlar Buradan aşağıya */
+const contactSection = document.querySelector("section.contact");
+const contacth4 = contactSection.querySelector("h4");
+contacth4.textContent = siteContent.iletisim["iletişim-h4"];
+
+const contactPs = contactSection.querySelectorAll("p");
+contactPs.forEach((p, i) => {
+  p.textContent = Object.values(siteContent.iletisim)[i + 1];
+})
+
+const footer = document.querySelector("footer a");
+footer.textContent = "Copyright Bir Şirket Sitesi 2022"
+footer.classList.add("bold")
+
+const navAlinks = document.querySelectorAll("header nav a");
+const items = Object.values(siteContent.nav)
+navAlinks.forEach((nav, i) => {
+  nav.classList.add("italic");
+  nav.textContent = items[i]
+})
+
+const ctaText = document.querySelector("section.cta .cta-text");
+const ctaH1 = ctaText.querySelector("h1");
+ctaH1.textContent = "Bu DOM Mükemmel"
+const ctaButton = ctaText.querySelector("button");
+ctaButton.textContent = "Başlayın"
+
+const sirketLogo = document.getElementById("logo-img");
+sirketLogo.setAttribute("src", siteContent.images["logo-img"]);
+
+const ctaImg = document.getElementById("cta-img");
+ctaImg.setAttribute("src", siteContent.images["cta-img"])
+
+const middleImg = document.getElementById("middle-img");
+middleImg.setAttribute("src", siteContent.images["accent-img"]);
+
+
+
+
+
+const anaContent = Object.values(siteContent["ana-içerik"])
+const anaIcerik = document.querySelectorAll(".text-content");
+
+anaIcerik.forEach((c, i) => {
+  c.querySelector("h4").textContent = anaContent[i * 2];
+  c.querySelector("p").textContent = anaContent[i * 2 + 1];
+
+
+})
+
+
+
+
